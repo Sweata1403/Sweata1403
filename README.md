@@ -1,10 +1,26 @@
-[![MasterHead](https://1.bp.blogspot.com/-7A4WynwLsM...)](https://rishavchanda.io)
+[![MasterHead](https://user-images.githubusercontent.com/63138398/236623085-7a6e89ca-0add-4a5e-b91d-2ef5b36b15b1.png)]()
+
+<h1 align="center">Chess Player ♟♟ | Web Development & DSA💙 | C++🔥 | HTML, CSS, JAVASCRIPT 🚀</h3>
+
+[![](https://visitcount.itsvg.in/api?id=deepraj02&icon=5&color=0)](https://visitcount.itsvg.in)
+
 # 💫 About Me:
-🔭 I’m currently working on personal portfolio<br><br>🌱 I’m currently learning HTML5, CSS, Javascript, React Native<br><br>💬 Ask me about Websites, Webapps, MERN<br><br>📫 How to reach me sweata.personal@gmail.com
+🔭 I’m currently working on personal portfolio
 
+🌱 I’m currently learning HTML5, CSS, Javascript, React Native
 
+💬 Ask me about Websites, Webapps, MERN
+
+📫 How to reach me sweata.personal@gmail.com
+
+<div style="text-align: center;">
+  
+## 🌐 Socials:
 ## 🌐 Socials:
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/theclassyqueen_14) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/Sweata Chakraborty) [![Pinterest](https://img.shields.io/badge/Pinterest-%23E60023.svg?logo=Pinterest&logoColor=white)](https://pinterest.com/@sweata1403) [![Reddit](https://img.shields.io/badge/Reddit-%23FF4500.svg?logo=Reddit&logoColor=white)](https://reddit.com/user/Sweata1403) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/Sweata Chakraborty) [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white)](https://twitter.com/@Sweata_Neha) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@Neha Chakraborty) 
+
+  
+
 
 ## Programming Languages
 
@@ -21,8 +37,7 @@
 ![HTML](https://img.shields.io/badge/-HTML-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/-Tailwind%20CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
 
-
-## Backend Development
+## Development
 
 ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
 ![Express.js](https://img.shields.io/badge/-Express.js-000000?style=flat-square&logo=express&logoColor=white)
@@ -81,3 +96,21 @@
 [![](https://visitcount.itsvg.in/api?id=Sweata1403&icon=0&color=0)](https://visitcount.itsvg.in)
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+
+# 📊 Stats:
+  
+<table align="center">
+<tr>
+<td><img src="https://github-readme-stats.vercel.app/api?username=deepraj02&theme=merko&hide_border=false&include_all_commits=true&count_private=true" />
+</td>
+<td>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=deepraj02&theme=merko&hide_border=false&include_all_commits=true&count_private=true&layout=compact"/>
+</td>
+</tr>
+</table>
+<br />
+<p align="center">
+<img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=deepraj02&theme=merko&hide_border=false" />
+</p>
+  
+  
