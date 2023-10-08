@@ -2,7 +2,7 @@
 
 <h1 align="center">Chess Player ♟♟ | Web Development & DSA💙 | C++🔥 | HTML, CSS, JAVASCRIPT 🚀</h3>
 
-[![](https://visitcount.itsvg.in/api?id=deepraj02&icon=5&color=0)](https://visitcount.itsvg.in)
+[![](https://visitcount.itsvg.in/api?id=sweata1403&label=Profile%20Views&color=1&icon=0&pretty=false)](https://visitcount.itsvg.in)
 
 # 💫 About Me:
 🔭 I’m currently working on personal portfolio<br><br>🌱 I’m currently learning HTML5, CSS, Javascript, React Native<br><br>💬 Ask me about Websites, Webapps, MERN<br><br>📫 How to reach me sweata.personal@gmail.com
