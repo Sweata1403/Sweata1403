@@ -1,11 +1,11 @@
 [![MasterHead](https://user-images.githubusercontent.com/63138398/236623085-7a6e89ca-0add-4a5e-b91d-2ef5b36b15b1.png)]()
 
-<h1 align="center">Chess Player ♟♟ | Web Development & DSA💙 | C++🔥 | HTML, CSS, JAVASCRIPT, ReactJs 🚀</h3>
+<h1 align="center">Chess Player ♟♟ | Web Development & DSA💙 | C++🔥 | HTML, CSS, JAVASCRIPT🚀</h3>
 
 [![](https://visitcount.itsvg.in/api?id=sweata1403&label=Profile%20Views&color=1&icon=0&pretty=false)](https://visitcount.itsvg.in)
 
 # 💫 About Me:
-🔭 I’m currently working on personal portfolio<br><br>🌱 I’m currently learning HTML5, CSS<br><br>💬 Ask me about Websites, Webapps<br><br>📫 How to reach me sweata.personal@gmail.com
+🔭 I’m currently working on personal portfolio<br><br>🌱 I’m currently learning HTML5, CSS, JavaScript, ReactJs<br><br>💬 Ask me about Websites, Webapps<br><br>📫 How to reach me sweata.personal@gmail.com
 
 
 
