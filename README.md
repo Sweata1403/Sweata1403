@@ -3,11 +3,12 @@
 <h1 align="center">Chess Player ♟♟ | Web Development & DSA💙 | C++🔥 | HTML, CSS, JAVASCRIPT🚀</h3>
 
 [![](https://visitcount.itsvg.in/api?id=sweata1403&label=Profile%20Views&color=1&icon=0&pretty=false)](https://visitcount.itsvg.in)
+<img align="right" alt="Coding" width="400" src="https://c.tenor.com/2uyENRmiUt0AAAAC/coding.gif">
 
 # 💫 About Me:
 🔭 I’m currently working on personal portfolio<br><br>🌱 I’m currently learning HTML5, CSS, JavaScript, ReactJs<br><br>💬 Ask me about Websites, Webapps<br><br>📫 How to reach me sweata.personal@gmail.com
 
-<img align="right" alt="Coding" width="400" src="https://c.tenor.com/2uyENRmiUt0AAAAC/coding.gif">
+
 
 ## 🌐 Socials:
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/theclassyqueen_14) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/Sweata Chakraborty) [![Pinterest](https://img.shields.io/badge/Pinterest-%23E60023.svg?logo=Pinterest&logoColor=white)](https://pinterest.com/@sweata1403) [![Reddit](https://img.shields.io/badge/Reddit-%23FF4500.svg?logo=Reddit&logoColor=white)](https://reddit.com/user/Sweata1403) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/Sweata Chakraborty) [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white)](https://twitter.com/@Sweata_Neha) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@NEHACHAKRABORTY) 
