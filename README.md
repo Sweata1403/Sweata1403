@@ -1,6 +1,8 @@
 [![MasterHead](https://user-images.githubusercontent.com/63138398/236623085-7a6e89ca-0add-4a5e-b91d-2ef5b36b15b1.png)]()
 
 <h1 align="center">Chess Player ♟♟ | Web Development & DSA💙 | C++🔥 | HTML, CSS, JAVASCRIPT🚀</h3>
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/72903324-cf57-4e90-80a6-ed3c9734e0ed" width="900">
+<br><br>
 
 [![](https://visitcount.itsvg.in/api?id=sweata1403&label=Profile%20Views&color=1&icon=0&pretty=false)](https://visitcount.itsvg.in)
 
