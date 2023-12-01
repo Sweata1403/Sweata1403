@@ -3,7 +3,7 @@
 <h1 align="center">Chess Player ♟♟ | Web Development & DSA💙 | C++🔥 | HTML, CSS, JAVASCRIPT🚀</h3>
 
 [![](https://visitcount.itsvg.in/api?id=sweata1403&label=Profile%20Views&color=1&icon=0&pretty=false)](https://visitcount.itsvg.in)
-<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/3b4607a1-1cc6-41f1-926f-892ae880e7a5" width="500">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/f5d2d866-d25c-4873-8d82-425d2c62fc2e" width="500">
 <br><br>
 
 # 💫 About Me:
