@@ -3,7 +3,8 @@
 <h1 align="center">Chess Player ♟♟ | Web Development & DSA💙 | C++🔥 | HTML, CSS, JAVASCRIPT🚀</h3>
 
 [![](https://visitcount.itsvg.in/api?id=sweata1403&label=Profile%20Views&color=1&icon=0&pretty=false)](https://visitcount.itsvg.in)
-<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/de30015f-dc5f-4ecf-a49b-ccd2b89776e4" width="500">
+<img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/3b4607a1-1cc6-41f1-926f-892ae880e7a5" width="500">
+<br><br>
 
 # 💫 About Me:
 🔭 I’m currently working on personal portfolio<br><br>🌱 I’m currently learning HTML5, CSS, JavaScript, ReactJs<br><br>💬 Ask me about Websites, Webapps<br><br>📫 How to reach me sweata.personal@gmail.com
