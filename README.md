@@ -9,7 +9,7 @@
 
 # 💫 About Me:
 🔭 I’m currently working on personal portfolio<br><br>🌱 I’m currently learning HTML5, CSS, JavaScript, ReactJs<br><br>💬 Ask me about Websites, Webapps<br><br>📫 How to reach me sweata.personal@gmail.com
-<img align="right" alt="Coding" width="400" src="[https://c.tenor.com/2uyENRmiUt0AAAAC/coding.gif](https://user-images.githubusercontent.com/74038190/216644487-64767dbf-3ffd-4a5a-bb44-88f07ea5a31c.gif)">
+<img align="right" alt="GIF" src="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" />
 
 
 ## 🌐 Socials:
