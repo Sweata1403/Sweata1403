@@ -8,8 +8,8 @@
 
 
 # 💫 About Me:
-🔭 I’m currently working on personal portfolio<br><br>🌱 I’m currently learning HTML5, CSS, JavaScript, ReactJs<br><br>💬 Ask me about Websites, Webapps<br><br>📫 How to reach me sweata.personal@gmail.com
-<img align="right" alt="Coding" width="200" src="https://c.tenor.com/2uyENRmiUt0AAAAC/coding.gif">
+🔭 I’m currently working on personal portfolio<br><br>🌱 I’m currently learning HTML5, CSS, JavaScript, ReactJs<br><img align="right" alt="Coding" width="200" src="https://c.tenor.com/2uyENRmiUt0AAAAC/coding.gif"><br>💬 Ask me about Websites, Webapps<br><br>📫 How to reach me sweata.personal@gmail.com
+
 
 
 ## 🌐 Socials:
