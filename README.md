@@ -5,11 +5,11 @@
 <br><br>
 
 [![](https://visitcount.itsvg.in/api?id=sweata1403&label=Profile%20Views&color=1&icon=0&pretty=false)](https://visitcount.itsvg.in)
-<img align="right" alt="Coding" width="200" src="https://c.tenor.com/2uyENRmiUt0AAAAC/coding.gif">
+
 
 # 💫 About Me:
 🔭 I’m currently working on personal portfolio<br><br>🌱 I’m currently learning HTML5, CSS, JavaScript, ReactJs<br><br>💬 Ask me about Websites, Webapps<br><br>📫 How to reach me sweata.personal@gmail.com
-
+<img align="right" alt="Coding" width="200" src="https://c.tenor.com/2uyENRmiUt0AAAAC/coding.gif">
 
 
 ## 🌐 Socials:
