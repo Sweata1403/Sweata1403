@@ -4,7 +4,7 @@
 </div>
 
 <h1 align="center">Big Data & Cloud Engineer ☁️ | PySpark • Python • SQL ⚡ | AWS & Azure 🏗️ | ML & Data Pipelines 🚀</h3>
-<p align="centre"><img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/72903324-cf57-4e90-80a6-ed3c9734e0ed" width="1000">
+
 
 # 💫 About Me:
 🔭 I’m currently working on data engineering and ML models<br>🌱 I’m currently learning advance python, ML model, PySpark, SQL, Docker, Kubernetes, AWS, Big Data<br>💬 Ask me about Big Data, Data Engineering concepts<br>📫 How to reach me sweata.personal@gmail.com
