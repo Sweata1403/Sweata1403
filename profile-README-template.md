@@ -1,9 +1,9 @@
 <div align="center">
 
-# Sweata Chakraborty
-### DevOps . Data Engineer . Cloud
+# {{NAME}}
+### {{TAGLINE}}
 
-[LinkedIn](https://www.linkedin.com/in/sweatachakraborty)
+[LinkedIn]({{LINKEDIN_URL}})
 
 <table>
 <tr>
