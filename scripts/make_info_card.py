@@ -21,6 +21,11 @@ KEY_X = PAD
 VAL_X = PAD + 92
 LINE_H = 20.5
 
+# keep in sync with make_ascii_svg.py's TOTAL_SCAN -- this panel stays blank
+# ("awaiting scan...") until the portrait finishes its scan sweep, then pops
+# in row by row, like a HUD pulling up a match.
+SCAN_SYNC = 2.65
+
 BG = "#0d1117"
 BG2 = "#111722"
 FRAME = "#30363d"
@@ -71,7 +76,7 @@ def rise(inner, i):
     """fade + slight upward slide, staggered by row index; freezes visible."""
     if STATIC:
         return f"<g>{inner}</g>"
-    delay = 0.15 + i * 0.06
+    delay = SCAN_SYNC + 0.15 + i * 0.06
     return (f'<g opacity="0" transform="translate(0,5)">{inner}'
             f'<animate attributeName="opacity" from="0" to="1" begin="{delay:.2f}s" dur="0.4s" fill="freeze"/>'
             f'<animateTransform attributeName="transform" type="translate" from="0 5" to="0 0" '
@@ -92,6 +97,17 @@ for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
     parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
 parts.append(f'<text x="{W/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
              f'text-anchor="middle">{esc(HOST)}@github: ~$ neofetch</text>')
+
+if not STATIC:
+    # placeholder shown only while the portrait is mid-scan; swapped for the
+    # real rows (via rise()) the instant SCAN_SYNC elapses
+    parts.append(
+        f'<text x="{KEY_X}" y="{TITLEBAR_H + 34}" fill="{ACCENT}" font-size="12.5">'
+        f'awaiting scan...'
+        f'<animate attributeName="opacity" values="0.35;1;0.35" keyTimes="0;0.5;1" '
+        f'dur="0.9s" repeatCount="indefinite"/>'
+        f'<set attributeName="opacity" to="0" begin="{SCAN_SYNC:.2f}s"/></text>'
+    )
 
 y = TITLEBAR_H + 30
 for i, row in enumerate(ROWS):

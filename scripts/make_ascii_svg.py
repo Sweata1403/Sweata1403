@@ -53,10 +53,14 @@ FRAME = "#30363d"
 TITLE_TEXT = "#7d8590"
 INK = "#c9d1d9"      # the single ascii color (matches Andrew6rant)
 CURSOR = "#c9d1d9"
+ACCENT = "#22d3ee"   # scan-line / HUD accent (matches info-card.py's ACCENT)
 
 # ---- reveal timing (one-shot; a cursor rasters top -> bottom) -------------
-ROW_DUR = 0.11
-STAGGER = 0.11       # == ROW_DUR -> a single cursor sweeping down
+ROW_DUR = 0.05
+STAGGER = 0.05       # == ROW_DUR -> a single cursor sweeping down
+TOTAL_SCAN = (ROWS - 1) * STAGGER + ROW_DUR  # when the sweep finishes; make_info_card.py's
+                                              # SCAN_SYNC should match this so the info panel
+                                              # "pops up" right as the portrait finishes scanning
 
 # ---- 1. sample the image into a COLS x ROWS grayscale grid ----------------
 im = Image.open(SRC).convert("L")               # grayscale
@@ -95,7 +99,15 @@ parts.append(
 parts.append('<defs>'
              f'<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">'
              f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/>'
-             f'</linearGradient></defs>')
+             f'</linearGradient>'
+             f'<linearGradient id="scanGlow" x1="0" y1="0" x2="0" y2="1">'
+             f'<stop offset="0" stop-color="{ACCENT}" stop-opacity="0"/>'
+             f'<stop offset="0.5" stop-color="{ACCENT}" stop-opacity="0.5"/>'
+             f'<stop offset="1" stop-color="{ACCENT}" stop-opacity="0"/>'
+             f'</linearGradient>'
+             f'<filter id="glow" x="-50%" y="-200%" width="200%" height="500%">'
+             f'<feGaussianBlur stdDeviation="2.2"/></filter>'
+             '</defs>')
 
 parts.append(f'<rect width="{CANVAS_W}" height="{CANVAS_H}" rx="12" fill="url(#bg)"/>')
 parts.append(f'<rect x="0.5" y="0.5" width="{CANVAS_W-1}" height="{CANVAS_H-1}" rx="12" '
@@ -106,6 +118,16 @@ for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
     parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
 parts.append(f'<text x="{CANVAS_W/2}" y="{TITLEBAR_H/2 + 4}" fill="{TITLE_TEXT}" font-size="12" '
              f'text-anchor="middle">{USER}@github: ~$ ./portrait.sh</text>')
+
+# targeting-frame corner brackets around the art area (HUD "scanning" framing)
+BRACKET = 14
+bx0, by0 = PAD - 6, art_top - 6
+bx1, by1 = PAD + ART_W + 6, art_top + ART_H + 6
+for cx, cy, dx, dy in [(bx0, by0, 1, 1), (bx1, by0, -1, 1), (bx0, by1, 1, -1), (bx1, by1, -1, -1)]:
+    parts.append(
+        f'<path d="M{cx} {cy+dy*BRACKET} L{cx} {cy} L{cx+dx*BRACKET} {cy}" '
+        f'stroke="{ACCENT}" stroke-width="1.5" fill="none" opacity="0.7"/>'
+    )
 
 # one <text> per row (single color -> no per-char markup, tiny file)
 font_size = CELL_H * 0.86
@@ -135,16 +157,50 @@ for ry, line in enumerate(rows_txt):
         f'<set attributeName="opacity" to="0" begin="{delay+ROW_DUR:.3f}s"/></rect>'
     )
 
-# status bar with a steady blinking cursor
+# scanning beam: a glowing bar that sweeps once top -> bottom in step with the
+# row reveal above, then fades -- reads as "this photo is being scanned" rather
+# than just "typed in". Skipped in STATIC mode (nothing left mid-sweep to show).
+if not STATIC:
+    parts.append(
+        f'<rect x="{PAD}" y="{art_top:.1f}" width="{ART_W}" height="18" '
+        f'fill="url(#scanGlow)">'
+        f'<animate attributeName="y" from="{art_top - 9:.1f}" to="{art_top + ART_H - 9:.1f}" '
+        f'begin="0s" dur="{TOTAL_SCAN:.2f}s" fill="freeze"/>'
+        f'<set attributeName="opacity" to="0" begin="{TOTAL_SCAN:.2f}s"/>'
+        f'</rect>'
+    )
+    parts.append(
+        f'<rect x="{PAD}" y="{art_top:.1f}" width="{ART_W}" height="2" '
+        f'fill="{ACCENT}" filter="url(#glow)">'
+        f'<animate attributeName="y" from="{art_top:.1f}" to="{art_top + ART_H:.1f}" '
+        f'begin="0s" dur="{TOTAL_SCAN:.2f}s" fill="freeze"/>'
+        f'<set attributeName="opacity" to="0" begin="{TOTAL_SCAN:.2f}s"/>'
+        f'</rect>'
+    )
+
+# status bar: a "scanning" line that fades out right as the sweep finishes,
+# handing off to the normal whoami line with a steady blinking cursor
 status_line_y = TITLEBAR_H + ART_H + PAD * 0.35
 status_y = status_line_y + 19
 parts.append(f'<line x1="0" y1="{status_line_y:.1f}" x2="{CANVAS_W}" y2="{status_line_y:.1f}" stroke="{FRAME}"/>')
-parts.append(f'<text x="{PAD}" y="{status_y:.1f}" fill="{TITLE_TEXT}" font-size="13">'
-             f'{USER}@github:~$ whoami <tspan fill="{INK}">{html.escape(NAME)}</tspan></text>')
+
+if not STATIC:
+    parts.append(
+        f'<text x="{PAD}" y="{status_y:.1f}" fill="{ACCENT}" font-size="13">'
+        f'{USER}@github:~$ scan --face <tspan opacity="0.85">[analyzing...]</tspan>'
+        f'<set attributeName="opacity" to="0" begin="{TOTAL_SCAN:.2f}s"/></text>'
+    )
+
+whoami_opacity = '1' if STATIC else '0'
+whoami_reveal = '' if STATIC else f'<set attributeName="opacity" to="1" begin="{TOTAL_SCAN:.2f}s"/>'
+parts.append(f'<text x="{PAD}" y="{status_y:.1f}" fill="{TITLE_TEXT}" font-size="13" opacity="{whoami_opacity}">'
+             f'{USER}@github:~$ whoami <tspan fill="{INK}">{html.escape(NAME)}</tspan>{whoami_reveal}</text>')
 cursor_x = PAD + 172 + len(USER) * 8
-parts.append(f'<rect x="{cursor_x}" y="{status_y-12:.1f}" width="8" height="14" fill="{INK}">'
+cursor_begin = 0 if STATIC else TOTAL_SCAN
+parts.append(f'<rect x="{cursor_x}" y="{status_y-12:.1f}" width="8" height="14" fill="{INK}" '
+             f'opacity="{"0.85" if STATIC else "0"}">'
              f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.51;1" '
-             f'dur="1s" repeatCount="indefinite"/></rect>')
+             f'begin="{cursor_begin:.2f}s" dur="1s" repeatCount="indefinite"/></rect>')
 
 parts.append("</svg>")
 svg = "".join(parts)
