@@ -2,9 +2,10 @@
 """
 Render data/contributions.json (produced by fetch_contributions.py) as a proper
 GitHub-style contribution heatmap SVG: a grid of rounded, colored BOXES in the
-classic 53-week x 7-day calendar, revealed once with a diagonal line-after-line
-slide-down (CSS keyframes, plays on load then freezes -- no looping "glow"), a
-Less->More legend, and a real stats footer.
+classic 53-week x 7-day calendar, revealed with a diagonal line-after-line
+slide-down (CSS keyframes), holds, then resets and replays every CYCLE seconds
+in step with the portrait + info card. A Less->More legend and a real stats
+footer round it out.
 
 Run by .github/workflows/update-profile-art.yml after fetch_contributions.py.
 """
@@ -36,10 +37,11 @@ ACCENT = "#22d3ee"
 GREEN = "#39d353"
 GOLD = "#f2cc60"
 
-# reveal timing (one-shot)
+# reveal timing (loops every CYCLE seconds; keep in sync with make_ascii_svg.py)
 COL_T = 0.018   # per-column delay contribution (left -> right sweep)
 ROW_T = 0.045   # per-row delay contribution (top -> bottom cascade)
 CELL_DUR = 0.42
+CYCLE = 15.0
 
 
 def level_for(count):
@@ -101,12 +103,17 @@ def render(data):
     stats_h = 88
     canvas_h = TITLEBAR_H + TOP_LABEL_H + art_h + stats_h + PAD
 
+    # a single shared keyframe timeline, {CYCLE}s long: the cell settles into
+    # place within its first CELL_DUR (each cell's own animation-delay staggers
+    # it into the diagonal sweep), holds for the rest of the cycle, then wraps
+    # back to 0% and replays -- same "hold then reset" loop as the portrait.
+    reveal_pct = CELL_DUR / CYCLE * 100
     css = f"""
 @keyframes cell {{
-  0%   {{ opacity: 0; transform: translateY(-6px); }}
-  100% {{ opacity: 1; transform: translateY(0); }}
+  0% {{ opacity: 0; transform: translateY(-6px); }}
+  {reveal_pct:.2f}%, 100% {{ opacity: 1; transform: translateY(0); }}
 }}
-.c {{ opacity: 0; animation: cell {CELL_DUR:.2f}s cubic-bezier(.2,.8,.2,1) both; }}
+.c {{ opacity: 0; animation: cell {CYCLE:.1f}s cubic-bezier(.2,.8,.2,1) infinite; }}
 """.strip()
 
     parts = [

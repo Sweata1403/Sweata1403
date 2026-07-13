@@ -21,10 +21,24 @@ KEY_X = PAD
 VAL_X = PAD + 92
 LINE_H = 20.5
 
-# keep in sync with make_ascii_svg.py's TOTAL_SCAN -- this panel stays blank
-# ("awaiting scan...") until the portrait finishes its scan sweep, then pops
-# in row by row, like a HUD pulling up a match.
-SCAN_SYNC = 2.65
+# keep in sync with make_ascii_svg.py's TOTAL_SCAN/CYCLE -- this panel stays
+# blank ("awaiting scan...") until the portrait finishes its scan sweep, then
+# pops in row by row, like a HUD pulling up a match, then the whole thing
+# resets and loops every CYCLE seconds.
+SCAN_SYNC = 2.8
+CYCLE = 15.0
+
+
+def loop_anim(attr, keyframes, calc_mode="linear", key_splines=None, extra=""):
+    """A <animate> that repeats forever on a CYCLE-second clock. `keyframes` is
+    a list of (absolute_time_seconds, value) pairs; the last time must be
+    CYCLE so the loop wraps cleanly back to the first value."""
+    times = ";".join(f"{t / CYCLE:.4f}" for t, _ in keyframes)
+    values = ";".join(str(v) for _, v in keyframes)
+    splines = f' keySplines="{key_splines}"' if calc_mode == "spline" and key_splines else ""
+    return (f'<animate attributeName="{attr}" values="{values}" keyTimes="{times}" '
+            f'calcMode="{calc_mode}"{splines} dur="{CYCLE}s" begin="0s" '
+            f'repeatCount="indefinite" {extra}/>')
 
 BG = "#0d1117"
 BG2 = "#111722"
@@ -75,14 +89,17 @@ def esc(s):
 
 
 def rise(inner, i):
-    """fade + slight upward slide, staggered by row index; freezes visible."""
+    """fade + slight upward slide, staggered by row index; loops every CYCLE."""
     if STATIC:
         return f"<g>{inner}</g>"
-    delay = SCAN_SYNC + 0.15 + i * 0.06
-    return (f'<g opacity="0" transform="translate(0,5)">{inner}'
-            f'<animate attributeName="opacity" from="0" to="1" begin="{delay:.2f}s" dur="0.4s" fill="freeze"/>'
-            f'<animateTransform attributeName="transform" type="translate" from="0 5" to="0 0" '
-            f'begin="{delay:.2f}s" dur="0.4s" fill="freeze" calcMode="spline" keySplines="0.2 0.8 0.2 1"/></g>')
+    delay = SCAN_SYNC + 0.15 + i * 0.075
+    fade = loop_anim("opacity", [(0, 0), (delay, 0), (delay + 0.45, 1), (CYCLE, 1)])
+    times = ";".join(f"{t / CYCLE:.4f}" for t in [0, delay, delay + 0.45, CYCLE])
+    slide = (f'<animateTransform attributeName="transform" type="translate" '
+             f'values="0 5;0 5;0 0;0 0" keyTimes="{times}" calcMode="spline" '
+             f'keySplines="0 0 1 1;0.2 0.8 0.2 1;0 0 1 1" dur="{CYCLE}s" begin="0s" '
+             f'repeatCount="indefinite"/>')
+    return f'<g opacity="0" transform="translate(0,5)">{inner}{fade}{slide}</g>'
 
 
 parts = [
@@ -102,13 +119,15 @@ parts.append(f'<text x="{W/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="
 
 if not STATIC:
     # placeholder shown only while the portrait is mid-scan; swapped for the
-    # real rows (via rise()) the instant SCAN_SYNC elapses
+    # real rows (via rise()) once SCAN_SYNC elapses, then hidden again until
+    # the next loop. The pulse just runs forever underneath an on/off gate so
+    # the two animations never fight over the same attribute.
+    gate = loop_anim("opacity", [(0, 1), (SCAN_SYNC, 1), (SCAN_SYNC + 0.01, 0), (CYCLE, 0)], calc_mode="discrete")
     parts.append(
-        f'<text x="{KEY_X}" y="{TITLEBAR_H + 34}" fill="{ACCENT}" font-size="12.5">'
-        f'awaiting scan...'
+        f'<g opacity="1">{gate}'
+        f'<text x="{KEY_X}" y="{TITLEBAR_H + 34}" fill="{ACCENT}" font-size="12.5">awaiting scan...'
         f'<animate attributeName="opacity" values="0.35;1;0.35" keyTimes="0;0.5;1" '
-        f'dur="0.9s" repeatCount="indefinite"/>'
-        f'<set attributeName="opacity" to="0" begin="{SCAN_SYNC:.2f}s"/></text>'
+        f'dur="0.9s" repeatCount="indefinite"/></text></g>'
     )
 
 y = TITLEBAR_H + 30
