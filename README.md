@@ -1,7 +1,7 @@
 <div align="center">
 
 # Sweata Chakraborty
-### DevOps . Data Engineer . Cloud
+### Senior Software Engineer @ Capgemini . AWS Solutions Architect Associate . Cloud Migration & DevOps
 
 [LinkedIn](https://www.linkedin.com/in/sweatachakraborty)
 

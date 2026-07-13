@@ -52,19 +52,21 @@ HOST = "sweata1403"   # shown as  sweata1403@github  in the header
 
 ROWS = [
     ("host",),
-    ("kv", "Role", "DevOps . Data Engineer . Cloud"),
-    ("kv", "Focus", "Data pipelines & ML models"),
-    ("kv", "Learning", "Advanced Python, PySpark, K8s"),
+    ("kv", "Role", "Senior SWE @ Capgemini"),
+    ("kv", "Cert", "AWS SAA-C03 Certified"),
+    ("kv", "Focus", "DevOps, Data Eng & Cloud Migration"),
+    ("kv", "Learning", "PySpark, Terraform, Ansible"),
     ("gap",),
     ("sec", "Stack"),
-    ("kv", "Languages", "Python, SQL, C++"),
-    ("kv", "Big Data", "PySpark, Kafka, Hadoop, Hive, Airflow"),
-    ("kv", "Cloud", "AWS, Azure, Docker, K8s, Terraform"),
-    ("kv", "Data", "Snowflake, DynamoDB, MySQL, SQL Server"),
+    ("kv", "Languages", "Python, SQL, PySpark"),
+    ("kv", "CI/CD", "GitHub Actions, CI/CD pipelines"),
+    ("kv", "Cloud", "AWS, Azure"),
+    ("kv", "GitHub", "Enterprise Automation (10K+ repos)"),
     ("gap",),
     ("sec", "Highlights"),
-    ("bul", "Building end-to-end data pipelines on AWS & Azure"),
-    ("bul", "Exploring ML models alongside data engineering work"),
+    ("bul", "AWS Solutions Architect Associate (SAA-C03) certified"),
+    ("bul", "GitHub Enterprise Automation Expert (10K+ repos)"),
+    ("bul", "Leading cloud migration & DevOps at Capgemini"),
 ]
 
 
